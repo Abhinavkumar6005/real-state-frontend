@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { @apply bg-chalk text-dusk font-body antialiased selection:bg-marigold selection:text-dusk; }
+
+@media (pointer: fine) and (hover: hover) {
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+  html.has-custom-cursor input,
+  html.has-custom-cursor select,
+  html.has-custom-cursor textarea {
+    cursor: text;
+  }
+}
+
+:focus-visible { outline: 3px solid #F2B230; outline-offset: 3px; }
+.display { @apply font-display tracking-tight leading-[0.95]; }
+.btn { @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold transition-all duration-300; }
+.btn-primary { @apply bg-marigold text-dusk hover:bg-white hover:shadow-lg hover:shadow-marigold/25; }
+.btn-ghost { @apply border border-white/50 bg-white/10 text-white backdrop-blur-md hover:bg-white hover:text-dusk; }
+.btn-dark { @apply bg-dusk text-white hover:bg-field hover:shadow-lg hover:shadow-dusk/15; }
+.glass { @apply border border-white/40 bg-white/70 backdrop-blur-xl shadow-sm; }
+.glass-dark { @apply border border-white/15 bg-dusk/65 backdrop-blur-xl; }
+.surface-translucent { @apply bg-white/75 backdrop-blur-md; }
+.input { @apply w-full rounded-xl border border-fog bg-white/95 px-4 py-3 text-dusk placeholder:text-dusk/40 transition-colors focus:border-dusk focus:outline-none; }
+.input[aria-invalid="true"] { @apply border-red-600; }
+
+.ambient-grid {
+  background-image:
+    linear-gradient(to right, rgba(13, 43, 69, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 43, 69, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card-in { animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.97) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-in { animation: modalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
